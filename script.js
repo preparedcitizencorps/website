@@ -109,7 +109,7 @@ if (contactForm) {
                     <button type="button" id="copy-message-btn" class="flex-1 border border-primary text-primary hover:bg-primary hover:text-primary-foreground terminal-glow bg-transparent inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-xs font-medium transition-all h-9 px-3">
                         &gt; COPY MESSAGE
                     </button>
-                    <a href="${mailtoLink}" class="flex-1 border border-primary text-primary hover:bg-primary hover:text-primary-foreground terminal-glow bg-transparent inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-xs font-medium transition-all h-9 px-3">
+                    <a href="${mailtoLink}" target="_blank" rel="noopener noreferrer" class="flex-1 border border-primary text-primary hover:bg-primary hover:text-primary-foreground terminal-glow bg-transparent inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-xs font-medium transition-all h-9 px-3">
                         &gt; OPEN EMAIL CLIENT
                     </a>
                     <button type="button" id="clear-form-btn" class="flex-1 border border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground terminal-glow bg-transparent inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-xs font-medium transition-all h-9 px-3">

@@ -64,7 +64,6 @@ Contributions are welcome! Please visit our [GitHub organization](https://github
 
 - **GitHub**: [github.com/preparedcitizencorps](https://github.com/preparedcitizencorps)
 - **Discord**: [discord.gg/uFMEug4Bb9](https://discord.gg/uFMEug4Bb9)
-- **Matrix**: #pcc:matrix.org
 - **Email**: contact@preparedcitizencorps.com
 
 ## License

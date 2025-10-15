@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCC Screenshots | Logo & Banner</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/favicon-512.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Screenshot helper styles */
+        .logo-container {
+            width: 1024px;
+            height: 1024px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--background);
+            margin: 2rem auto;
+            border: 2px dashed var(--primary);
+        }
+
+        .banner-container {
+            width: 2560px;
+            height: 1440px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--background);
+            margin: 2rem auto;
+            border: 2px dashed var(--primary);
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .youtube-banner-container {
+            width: 2560px;
+            height: 1440px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--background);
+            margin: 2rem auto;
+            border: 2px dashed var(--secondary);
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            font-size: 400px;
+            font-weight: bold;
+            color: var(--primary);
+            text-shadow:
+                0 0 20px currentColor,
+                0 0 40px currentColor,
+                0 0 60px currentColor,
+                0 0 80px currentColor;
+            line-height: 1;
+            font-family: monospace;
+        }
+
+        .banner-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        .banner-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            width: 100%;
+        }
+
+        .banner-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .helper-text {
+            text-align: center;
+            color: var(--muted-foreground);
+            font-size: 14px;
+            margin: 1rem 0;
+        }
+
+        .section-divider {
+            border-top: 2px solid var(--border);
+            margin: 4rem 0;
+        }
+
+        pre {
+            margin: 0;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .banner-text {
+            font-size: 48px;
+            font-weight: bold;
+            color: var(--primary);
+            text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+            text-align: center;
+            margin: 0;
+        }
+
+        .banner-subtitle {
+            font-size: 32px;
+            color: var(--secondary);
+            text-shadow: 0 0 8px currentColor;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .ascii-large {
+            font-size: 24px;
+            line-height: 1.2;
+        }
+
+        .banner-item > div {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-4 terminal-glow text-primary text-center">&gt; SCREENSHOT_GENERATOR</h1>
+        <p class="text-center text-muted-foreground mb-8">Use these sections to capture your logo and social media banners</p>
+
+        <!-- LOGO SECTION (1024x1024) -->
+        <div class="helper-text">
+            LOGO (1024x1024) - Screenshot this section
+        </div>
+        <div class="logo-container" id="logo">
+            <div class="logo">[]</div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- YOUTUBE BANNER (2560x1440) -->
+        <div class="helper-text">
+            YOUTUBE BANNER (2560x1440) - Screenshot this section
+        </div>
+        <div class="youtube-banner-container" id="youtube-banner">
+            <div class="banner-content">
+                <div class="banner-row">
+                    <div class="banner-item">
+                        <pre class="text-primary terminal-glow ascii-large">╔═══════════════════════════╗
+║   PREPARED CITIZEN CORPS  ║
+║   =====================   ║
+║                           ║
+║   [████████████] 100%     ║
+║                           ║
+║   STATUS: OPERATIONAL     ║
+║   PROJECTS: ACTIVE        ║
+║   COMMUNITY: ENGAGED      ║
+║                           ║
+║   > READY FOR DEPLOYMENT  ║
+╚═══════════════════════════╝</pre>
+                    </div>
+                    <div class="banner-item">
+                        <div style="text-align: center;">
+                            <div class="banner-text">[]</div>
+                            <div class="banner-subtitle">PREPARED CITIZEN CORPS</div>
+                            <p class="text-foreground text-2xl mt-4" style="line-height: 1.8;">
+                                &gt; OPEN SOURCE PREPAREDNESS<br>
+                                &gt; BUILT BY THE COMMUNITY<br>
+                                &gt; FOR THE COMMUNITY
+                            </p>
+                        </div>
+                    </div>
+                    <div class="banner-item">
+                        <pre class="text-primary terminal-glow ascii-large">┌─────────────────────────┐
+│  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  │
+│  ▓▓░░░░░░░░░░░░░░░░▓▓  │
+│  ▓▓░░██████████░░░░▓▓  │
+│  ▓▓░░██      ██░░░░▓▓  │
+│  ▓▓░░██  PCC ██░░░░▓▓  │
+│  ▓▓░░██      ██░░░░▓▓  │
+│  ▓▓░░██████████░░░░▓▓  │
+│  ▓▓░░░░░░░░░░░░░░░░▓▓  │
+│  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  │
+└─────────────────────────┘</pre>
+                    </div>
+                </div>
+
+                <div class="banner-row">
+                    <div class="banner-item">
+                        <pre class="text-secondary terminal-glow text-xl">┌──────────────────────┐
+│ KNOWLEDGE IS POWER   │
+│ ══════════════════   │
+│                      │
+│ [✓] OPEN ACCESS      │
+│ [✓] NO PAYWALLS      │
+│ [✓] ALWAYS FREE      │
+│ [✓] OFFLINE READY    │
+│                      │
+│ > DOWNLOAD FREELY    │
+└──────────────────────┘</pre>
+                    </div>
+                    <div class="banner-item">
+                        <pre class="text-primary terminal-glow text-xl">┌─────────────────┐
+│ SECURE COMMS    │
+│ ═══════════════ │
+│ [✓] ENCRYPTED   │
+│ [✓] VERIFIED    │
+│ [✓] ANONYMOUS   │
+└─────────────────┘</pre>
+                    </div>
+                    <div class="banner-item">
+                        <pre class="text-secondary terminal-glow text-xl">███████╗██████╗ ███████╗
+██╔════╝██╔══██╗██╔════╝
+█████╗  ██████╔╝█████╗
+██╔══╝  ██╔══██╗██╔══╝
+██║     ██║  ██║███████╗
+╚═╝     ╚═╝  ╚═╝╚══════╝
+
+AS IN FREEDOM</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ALTERNATIVE BANNER WITH CORE PRINCIPLES -->
+        <div class="helper-text">
+            ALTERNATIVE BANNER (2560x1440) - With Core Principles
+        </div>
+        <div class="banner-container" id="alt-banner">
+            <div class="banner-content">
+                <div style="text-align: center;">
+                    <div class="banner-text" style="font-size: 72px;">[PCC]</div>
+                    <div class="banner-subtitle" style="font-size: 42px;">PREPARED CITIZEN CORPS</div>
+                    <p class="text-muted-foreground text-3xl mt-2">Open Source Preparedness Systems</p>
+                </div>
+
+                <div class="banner-row">
+                    <div class="banner-item">
+                        <pre class="text-primary terminal-glow text-xl">┌────────────────────────────┐
+│ [1] OPEN SOURCE FIRST      │
+│     └─> All code public    │
+│     └─> No proprietary     │
+│                            │
+│ [2] COMMUNITY DRIVEN       │
+│     └─> Built together     │
+│     └─> Maintained by all  │
+│                            │
+│ [3] OFFLINE CAPABLE        │
+│     └─> No cloud required  │
+│     └─> Works anywhere     │
+└────────────────────────────┘</pre>
+                    </div>
+                    <div class="banner-item">
+                        <pre class="text-secondary terminal-glow text-xl">┌────────────────────────────┐
+│ [4] PRIVACY FOCUSED        │
+│     └─> Your data is yours │
+│     └─> No tracking        │
+│                            │
+│ [5] RESILIENT DESIGN       │
+│     └─> Decentralized      │
+│     └─> Fault tolerant     │
+│                            │
+│ > MISSION CRITICAL         │
+│ > COMMUNITY DRIVEN         │
+│ > ALWAYS FREE              │
+└────────────────────────────┘</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- SIMPLE CLEAN BANNER -->
+        <div class="helper-text">
+            CLEAN BANNER (2560x1440) - Minimal Design
+        </div>
+        <div class="banner-container" id="clean-banner">
+            <div style="text-align: center; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                <div class="logo" style="font-size: 300px; margin-bottom: 2rem;">[]</div>
+                <div class="banner-text" style="font-size: 96px; margin-bottom: 1rem;">PREPARED CITIZEN CORPS</div>
+                <div class="text-secondary text-5xl terminal-glow" style="margin-top: 2rem;">
+                    &gt; OPEN SOURCE | COMMUNITY DRIVEN | ALWAYS FREE
+                </div>
+                <pre class="text-primary terminal-glow text-2xl" style="margin-top: 3rem; display: inline-block;">STATUS: OPERATIONAL    |    PROJECTS: ACTIVE    |    COMMUNITY: ENGAGED</pre>
+            </div>
+        </div>
+
+        <div class="mt-8 text-center">
+            <p class="text-muted-foreground text-sm">
+                Use your browser's screenshot tool or press F12 and use DevTools to capture specific sections.<br>
+                Tip: Right-click on an element ID and select "Capture node screenshot"
+            </p>
+        </div>
+    </div>
+</body>
+</html>

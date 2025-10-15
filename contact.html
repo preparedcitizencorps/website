@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#1a0f0a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Contact | Prepared Citizen Corps</title>
+    <meta name="description" content="Join the mission. Contribute code. Report issues. Share ideas.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/favicon-512.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="border-b-2 border-primary bg-card sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3">
+                    <div class="text-primary terminal-glow text-2xl font-bold">[ ]</div>
+                    <div class="hidden sm:block">
+                        <div class="text-primary terminal-glow font-bold text-lg">PREPARED CITIZEN CORPS</div>
+                        <div class="text-muted-foreground text-xs">&gt; OPEN SOURCE PREPAREDNESS SYSTEMS</div>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-6">
+                    <a href="projects.html" class="text-foreground hover:text-primary transition-colors terminal-glow">
+                        &gt; PROJECTS
+                    </a>
+                    <a href="resources.html" class="text-foreground hover:text-primary transition-colors terminal-glow">
+                        &gt; RESOURCES
+                    </a>
+                    <a href="mission.html" class="text-foreground hover:text-primary transition-colors terminal-glow">
+                        &gt; MISSION
+                    </a>
+                    <a href="contact.html" class="text-primary transition-colors terminal-glow">
+                        &gt; CONTACT
+                    </a>
+                    <a href="https://github.com/preparedcitizencorps" target="_blank" rel="noopener noreferrer" class="bg-primary text-primary-foreground hover:bg-primary/80 terminal-glow inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all h-9 px-4 py-2">
+                        &gt; DEPLOY
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button type="button" id="mobile-menu-btn" class="md:hidden text-primary" aria-label="Toggle menu">
+                    <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="4" y1="6" x2="20" y2="6"></line>
+                        <line x1="4" y1="12" x2="20" y2="12"></line>
+                        <line x1="4" y1="18" x2="20" y2="18"></line>
+                    </svg>
+                    <svg id="close-icon" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <nav id="mobile-menu" class="hidden md:hidden mt-4 pt-4 border-t border-border flex flex-col gap-4">
+                <a href="projects.html" class="text-foreground hover:text-primary transition-colors terminal-glow mobile-menu-link">
+                    &gt; PROJECTS
+                </a>
+                <a href="resources.html" class="text-foreground hover:text-primary transition-colors terminal-glow mobile-menu-link">
+                    &gt; RESOURCES
+                </a>
+                <a href="mission.html" class="text-foreground hover:text-primary transition-colors terminal-glow mobile-menu-link">
+                    &gt; MISSION
+                </a>
+                <a href="contact.html" class="text-primary transition-colors terminal-glow mobile-menu-link">
+                    &gt; CONTACT
+                </a>
+                <a href="https://github.com/preparedcitizencorps" target="_blank" rel="noopener noreferrer" class="bg-primary text-primary-foreground hover:bg-primary/80 terminal-glow inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all h-9 px-4 py-2 w-full">
+                    &gt; DEPLOY
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Contact Section -->
+        <section class="container mx-auto px-4 py-16 md:py-24">
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-12">
+                    <h1 class="text-3xl md:text-5xl font-bold mb-4 terminal-glow text-primary">&gt; ESTABLISH_CONTACT</h1>
+                    <p class="text-muted-foreground text-lg">
+                        Join the mission. Contribute code. Report issues. Share ideas.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="border-2 border-primary bg-card rounded-xl shadow-sm p-6">
+                        <div class="mb-6">
+                            <h3 class="text-primary terminal-glow font-semibold leading-none mb-2">&gt; CONTACT_FORM</h3>
+                            <p class="text-muted-foreground text-sm">Send us a secure transmission</p>
+                        </div>
+                        <form id="contact-form" class="space-y-4">
+                            <div>
+                                <label class="text-sm text-muted-foreground mb-2 block">&gt; SUBJECT</label>
+                                <input
+                                    type="text"
+                                    name="subject"
+                                    class="bg-input border-border text-foreground font-mono h-9 w-full rounded-md border px-3 py-1 text-base shadow-xs transition-all outline-none"
+                                    placeholder="ENTER_SUBJECT"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label class="text-sm text-muted-foreground mb-2 block">&gt; MESSAGE</label>
+                                <textarea
+                                    name="message"
+                                    class="bg-input border-border text-foreground font-mono min-h-16 w-full rounded-md border px-3 py-2 text-base shadow-xs transition-all outline-none"
+                                    style="min-height: 120px;"
+                                    placeholder="ENTER_MESSAGE"
+                                    required
+                                ></textarea>
+                            </div>
+                            <button
+                                type="submit"
+                                class="w-full bg-primary text-primary-foreground hover:bg-primary/80 terminal-glow inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all h-9 px-4 py-2"
+                            >
+                                &gt; TRANSMIT_MESSAGE
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="border-2 border-secondary bg-card rounded-xl shadow-sm p-6">
+                            <h3 class="text-secondary terminal-glow font-semibold leading-none mb-6">&gt; GITHUB_REPOSITORY</h3>
+                            <p class="text-foreground mb-4">All projects are hosted on GitHub. Fork, clone, contribute.</p>
+                            <a href="https://github.com/preparedcitizencorps" target="_blank" rel="noopener noreferrer" class="w-full border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground terminal-glow bg-transparent inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all h-9 px-4 py-2">
+                                &gt; GITHUB.COM/PREPAREDCITIZENCORPS
+                            </a>
+                        </div>
+
+                        <div class="border-2 border-primary bg-card rounded-xl shadow-sm p-6">
+                            <h3 class="text-primary terminal-glow font-semibold leading-none mb-6">&gt; COMMUNITY_CHANNELS</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-2 text-foreground">
+                                    <span class="text-secondary">&gt;</span>
+                                    <a href="https://discord.gg/uFMEug4Bb9" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">DISCORD: discord.gg/uFMEug4Bb9</a>
+                                </div>
+                                <div class="flex items-center gap-2 text-foreground">
+                                    <span class="text-secondary">&gt;</span>
+                                    <span>MATRIX: #pcc:matrix.org</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-foreground">
+                                    <span class="text-secondary">&gt;</span>
+                                    <span>EMAIL: contact@preparedcitizencorps.com</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-2 border-primary p-4 bg-card">
+                            <pre class="text-primary text-xs terminal-glow">
+  ┌─────────────────┐
+  │ SECURE COMMS    │
+  │ ═══════════════ │
+  │ [✓] ENCRYPTED   │
+  │ [✓] VERIFIED    │
+  │ [✓] ANONYMOUS   │
+  └─────────────────┘
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t-2 border-primary bg-card mt-16">
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-primary terminal-glow font-bold mb-4">&gt; PREPARED_CITIZEN_CORPS</h3>
+                    <p class="text-muted-foreground text-sm">Open source preparedness tools for resilient communities.</p>
+                </div>
+                <div>
+                    <h3 class="text-primary terminal-glow font-bold mb-4">&gt; QUICK_LINKS</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>
+                            <a href="projects.html" class="text-foreground hover:text-primary transition-colors">
+                                &gt; Projects
+                            </a>
+                        </li>
+                        <li>
+                            <a href="resources.html" class="text-foreground hover:text-primary transition-colors">
+                                &gt; Resources
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mission.html" class="text-foreground hover:text-primary transition-colors">
+                                &gt; Mission
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contact.html" class="text-foreground hover:text-primary transition-colors">
+                                &gt; Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-primary terminal-glow font-bold mb-4">&gt; DOCUMENTATION</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>
+                            <a href="resources.html" class="text-foreground hover:text-primary transition-colors">
+                                &gt; Getting Started
+                            </a>
+                        </li>
+                        <li>
+                            <a href="resources.html" class="text-foreground hover:text-primary transition-colors">
+                                &gt; API Docs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="resources.html" class="text-foreground hover:text-primary transition-colors">
+                                &gt; Survival Guides
+                            </a>
+                        </li>
+                        <li>
+                            <a href="resources.html" class="text-foreground hover:text-primary transition-colors">
+                                &gt; Downloads
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-border pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="text-muted-foreground text-sm">
+                        <pre class="terminal-glow">© 2025 PREPARED CITIZEN CORPS | OPEN SOURCE | MIT LICENSE</pre>
+                    </div>
+                    <div class="text-secondary text-sm terminal-glow">
+                        &gt; STAY_PREPARED <span class="blink">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

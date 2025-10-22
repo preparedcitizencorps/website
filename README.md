@@ -1,23 +1,23 @@
 # Prepared Citizen Corps Website
 
-Official website for Prepared Citizen Corps - open source preparedness tools and systems built by the community, for the community.
+Official website for Prepared Citizen Corps - building open-source tactical technology starting with WARLOCK.
 
 ## Overview
 
-This is a static website showcasing PCC projects, resources, and mission. Built with a terminal/hacker aesthetic featuring ASCII art, glow effects, and a mobile-first responsive design.
+Single-page static website showcasing the WARLOCK helmet-mounted AR system. Built with a terminal/hacker aesthetic featuring scanline effects, glow text, and a mobile-first responsive design. All CSS is inline, no external dependencies.
 
 ## Features
 
-- **Projects Page**: Showcases active PCC projects including WARLOCK AR system
-- **Resources Page**: Documentation and guides (currently building in public)
-- **Mission Page**: Core principles and organizational values
-- **Contact Page**: Community channels and contact form
-- **Mobile Optimized**: Touch-friendly navigation with 44px minimum targets
-- **Cross-Platform Favicon**: Support for desktop, iOS, Android, and PWA
+- **Single Page**: Focused landing page for WARLOCK project
+- **WARLOCK Showcase**: Detailed specs, features, and current development status
+- **Two Primary CTAs**: View WARLOCK on GitHub and Join Discord community
+- **Terminal Aesthetic**: Scanline effects, monospace fonts, and glow animations
+- **Mobile Optimized**: Fully responsive with accessible reduced-motion support
+- **Self-Contained**: All styles inline, no external CSS or JavaScript files
 
 ## Local Development
 
-Run a local web server in the project directory:
+Simply open `index.html` in your browser, or run a local web server:
 
 ```bash
 # Using Python
@@ -25,9 +25,6 @@ python3 -m http.server 8080
 
 # Using Node.js
 npx http-server -p 8080
-
-# Using PHP
-php -S localhost:8080
 ```
 
 Then visit `http://localhost:8080` in your browser.
@@ -36,29 +33,35 @@ Then visit `http://localhost:8080` in your browser.
 
 ```
 .
-├── index.html          # Homepage
-├── projects.html       # Projects showcase
-├── resources.html      # Documentation and guides
-├── mission.html        # Mission statement
-├── contact.html        # Contact form and links
-├── screenshot.html     # Social media asset generator
-├── styles.css          # Main stylesheet
-├── mobile.css          # Mobile-specific optimizations
-├── script.js           # Interactive functionality
+├── index.html          # Single-page website (self-contained)
 ├── favicon.ico         # Browser favicon
-└── images/             # Logos and icons
+├── images/             # Project images
+├── LICENSE             # MIT License
+└── README.md           # This file
 ```
 
 ## Technologies
 
-- HTML5
-- CSS3 (Custom properties, Flexbox, Grid)
-- Vanilla JavaScript (No frameworks)
+- Pure HTML5 (single file)
+- Inline CSS3 (custom properties, Flexbox, Grid)
+- No JavaScript required
 - Mobile-first responsive design
+- Accessible (reduced-motion support)
+
+## WARLOCK Project
+
+This website showcases WARLOCK - a helmet-mounted AR system with TAK integration:
+- Multi-camera system (2x IMX462 low-light + FLIR Lepton 3.5 thermal)
+- Real-time AI object detection (YOLO11 on Hailo-8L)
+- TAK server integration for waypoint overlay
+- ~$814 total build cost
+- Open source hardware and software
+
+View the full project: [github.com/preparedcitizencorps/warlock](https://github.com/preparedcitizencorps/warlock)
 
 ## Contributing
 
-Contributions are welcome! Please visit our [GitHub organization](https://github.com/preparedcitizencorps) to see all repositories and contribution guidelines.
+Contributions welcome! Visit our [GitHub organization](https://github.com/preparedcitizencorps) or join the [Discord](https://discord.gg/uFMEug4Bb9).
 
 ## Community
 
@@ -72,6 +75,6 @@ MIT License - See individual project repositories for specific licensing.
 
 ---
 
-**Status**: Operational | **Projects**: Active | **Community**: Engaged
+**WARLOCK Status**: Phase 1 - Core System Development
 
-> STAY_PREPARED
+> STAY_PREPARED _

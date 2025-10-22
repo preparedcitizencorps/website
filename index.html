@@ -2,219 +2,504 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#1a0f0a">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Prepared Citizen Corps | Open Source Preparedness</title>
-    <meta name="description" content="Open source tools and systems for citizen preparedness. Built by the community, for the community.">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="images/favicon-512.png">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="mobile.css">
+    <title>Prepared Citizen Corps | Open Source Tactical Technology</title>
+    <meta name="description" content="Building WARLOCK - open-source AR night vision and tactical HUD. All plans free, forever.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0a0a0a;
+            --card-bg: #1a1a1a;
+            --text: #f5f5f5;
+            --text-dim: #999;
+            --orange: #FF6B35;
+            --green: #00D084;
+            --border: #424242;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Scanline effect */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .glow {
+            text-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background: var(--card-bg);
+            border-bottom: 2px solid var(--orange);
+            padding: 1rem 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--orange);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.5rem 1.25rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.2s;
+            display: inline-block;
+            border: 2px solid;
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            border-color: var(--orange);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--orange);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        .btn-outline:hover {
+            background: var(--green);
+            color: #000;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            color: var(--orange);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* WARLOCK Section */
+        .warlock {
+            padding: 3rem 0;
+        }
+
+        .warlock-card {
+            background: var(--card-bg);
+            border: 2px solid var(--orange);
+            border-radius: 8px;
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .warlock-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .warlock-title {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: var(--orange);
+        }
+
+        .status-badge {
+            background: transparent;
+            border: 1px solid var(--green);
+            color: var(--green);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+        }
+
+        .warlock-description {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .feature {
+            display: flex;
+            gap: 0.5rem;
+            align-items: start;
+        }
+
+        .feature-icon {
+            color: var(--orange);
+            flex-shrink: 0;
+        }
+
+        .feature-icon.done { color: var(--green); }
+        .feature-icon.wip { color: var(--orange); }
+        .feature-icon.todo { color: var(--text-dim); }
+
+        .feature-text {
+            font-size: 0.9rem;
+        }
+
+        .feature-text.todo {
+            color: var(--text-dim);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid var(--orange);
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            color: var(--orange);
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            display: block;
+            margin-top: 0.25rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .tag {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 2px solid var(--orange);
+            padding: 2rem 0;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--orange);
+        }
+
+        .copyright {
+            color: var(--text-dim);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .warlock-card {
+                padding: 1.5rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .logo-text {
+                display: none;
+            }
+        }
+
+        /* Animations */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .blink {
+                animation: none !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
-    <header class="border-b-2 border-primary bg-card sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex items-center justify-between">
-                <a href="index.html" class="flex items-center gap-3">
-                    <div class="text-primary terminal-glow text-2xl font-bold">[ ]</div>
-                    <div class="hidden sm:block">
-                        <div class="text-primary terminal-glow font-bold text-lg">PREPARED CITIZEN CORPS</div>
-                        <div class="text-muted-foreground text-xs">&gt; OPEN SOURCE PREPAREDNESS SYSTEMS</div>
-                    </div>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <span class="logo-icon glow">[ ]</span>
+                    <span class="logo-text glow">PREPARED CITIZEN CORPS</span>
                 </a>
-
-                <!-- Desktop Navigation -->
-                <nav class="hidden md:flex items-center gap-6">
-                    <a href="projects.html" class="text-foreground hover:text-primary transition-colors terminal-glow">
-                        &gt; PROJECTS
-                    </a>
-                    <a href="resources.html" class="text-foreground hover:text-primary transition-colors terminal-glow">
-                        &gt; RESOURCES
-                    </a>
-                    <a href="mission.html" class="text-foreground hover:text-primary transition-colors terminal-glow">
-                        &gt; MISSION
-                    </a>
-                    <a href="contact.html" class="text-foreground hover:text-primary transition-colors terminal-glow">
-                        &gt; CONTACT
-                    </a>
-                    <a href="https://github.com/preparedcitizencorps" target="_blank" rel="noopener noreferrer" class="bg-primary text-primary-foreground hover:bg-primary/80 terminal-glow inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all h-9 px-4 py-2">
-                        &gt; DEPLOY
-                    </a>
+                <nav class="nav-links">
+                    <a href="https://github.com/preparedcitizencorps" target="_blank" rel="noopener" class="btn btn-outline glow">&gt; GITHUB</a>
+                    <a href="https://discord.gg/uFMEug4Bb9" target="_blank" rel="noopener" class="btn btn-primary glow">&gt; DISCORD</a>
                 </nav>
-
-                <!-- Mobile Menu Button -->
-                <button type="button" id="mobile-menu-btn" class="md:hidden text-primary" aria-label="Toggle menu">
-                    <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="4" y1="6" x2="20" y2="6"></line>
-                        <line x1="4" y1="12" x2="20" y2="12"></line>
-                        <line x1="4" y1="18" x2="20" y2="18"></line>
-                    </svg>
-                    <svg id="close-icon" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
             </div>
-
-            <!-- Mobile Navigation -->
-            <nav id="mobile-menu" class="hidden md:hidden mt-4 pt-4 border-t border-border flex flex-col gap-4">
-                <a href="projects.html" class="text-foreground hover:text-primary transition-colors terminal-glow mobile-menu-link">
-                    &gt; PROJECTS
-                </a>
-                <a href="resources.html" class="text-foreground hover:text-primary transition-colors terminal-glow mobile-menu-link">
-                    &gt; RESOURCES
-                </a>
-                <a href="mission.html" class="text-foreground hover:text-primary transition-colors terminal-glow mobile-menu-link">
-                    &gt; MISSION
-                </a>
-                <a href="contact.html" class="text-foreground hover:text-primary transition-colors terminal-glow mobile-menu-link">
-                    &gt; CONTACT
-                </a>
-                <a href="https://github.com/preparedcitizencorps" target="_blank" rel="noopener noreferrer" class="bg-primary text-primary-foreground hover:bg-primary/80 terminal-glow inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all h-9 px-4 py-2 w-full">
-                    &gt; DEPLOY
-                </a>
-            </nav>
         </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="container mx-auto px-4 py-16 md:py-24">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <div class="text-secondary text-sm mb-4 terminal-glow">
-                        <span id="typing-text"></span><span class="blink">_</span>
-                    </div>
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6 terminal-glow text-primary leading-tight">
-                        PREPARED<br>
-                        CITIZEN<br>
-                        CORPS
-                    </h1>
-                    <p class="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-                        &gt; Open source tools and systems for citizen preparedness.<br>
-                        &gt; Built by the community, for the community.<br>
-                        &gt; Mission-critical software for uncertain times.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="projects.html" class="bg-primary text-primary-foreground hover:bg-primary/80 terminal-glow inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all h-10 px-6">
-                            &gt; VIEW PROJECTS
-                        </a>
-                        <a href="resources.html" class="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground terminal-glow bg-transparent inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all h-10 px-6">
-                            &gt; READ DOCS
-                        </a>
-                    </div>
-                </div>
-
-                <div class="border-2 border-primary p-6 bg-card">
-                    <pre class="text-primary text-xs md:text-sm terminal-glow overflow-x-auto">
-    ╔═══════════════════════════╗
-    ║   PREPARED CITIZEN CORPS  ║
-    ║   =====================   ║
-    ║                           ║
-    ║   [████████████] 100%     ║
-    ║                           ║
-    ║   STATUS: OPERATIONAL     ║
-    ║   PROJECTS: ACTIVE        ║
-    ║   COMMUNITY: ENGAGED      ║
-    ║                           ║
-    ║   > READY FOR DEPLOYMENT  ║
-    ╚═══════════════════════════╝
-
-    ┌──────────────────────────┐
-    │  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  │
-    │  ▓▓░░░░░░░░░░░░░░░░░░▓▓  │
-    │  ▓▓░░░░██████████░░░░▓▓  │
-    │  ▓▓░░░░██      ██░░░░▓▓  │
-    │  ▓▓░░░░██ PCC  ██░░░░▓▓  │
-    │  ▓▓░░░░██      ██░░░░▓▓  │
-    │  ▓▓░░░░██████████░░░░▓▓  │
-    │  ▓▓░░░░░░░░░░░░░░░░░░▓▓  │
-    │  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  │
-    └──────────────────────────┘
-                    </pre>
-                </div>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="glow">BUILDING OPEN-SOURCE<br>TACTICAL TECHNOLOGY</h1>
+            <p class="subtitle">
+                &gt; Helmet-mounted AR system with TAK integration<br>
+                &gt; All plans free, forever<br>
+                &gt; Built by the community, for the community
+            </p>
+            <div class="hero-buttons">
+                <a href="https://github.com/preparedcitizencorps/warlock" target="_blank" rel="noopener" class="btn btn-primary glow">&gt; VIEW WARLOCK</a>
+                <a href="https://discord.gg/uFMEug4Bb9" target="_blank" rel="noopener" class="btn btn-outline glow">&gt; JOIN COMMUNITY</a>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <!-- Footer -->
-    <footer class="border-t-2 border-primary bg-card mt-16">
-        <div class="container mx-auto px-4 py-8">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
-                <div>
-                    <h3 class="text-primary terminal-glow font-bold mb-4">&gt; PREPARED_CITIZEN_CORPS</h3>
-                    <p class="text-muted-foreground text-sm">Open source preparedness tools for resilient communities.</p>
+    <!-- WARLOCK Project -->
+    <section class="warlock">
+        <div class="container">
+            <div class="warlock-card">
+                <div class="warlock-header">
+                    <div>
+                        <h2 class="warlock-title glow">WARLOCK</h2>
+                        <p style="color: var(--green); font-size: 0.875rem; margin-top: 0.25rem;">Helmet-mounted AR system with TAK integration</p>
+                    </div>
+                    <span class="status-badge glow">PHASE 1</span>
                 </div>
-                <div>
-                    <h3 class="text-primary terminal-glow font-bold mb-4">&gt; QUICK_LINKS</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li>
-                            <a href="projects.html" class="text-foreground hover:text-primary transition-colors">
-                                &gt; Projects
-                            </a>
-                        </li>
-                        <li>
-                            <a href="resources.html" class="text-foreground hover:text-primary transition-colors">
-                                &gt; Resources
-                            </a>
-                        </li>
-                        <li>
-                            <a href="mission.html" class="text-foreground hover:text-primary transition-colors">
-                                &gt; Mission
-                            </a>
-                        </li>
-                        <li>
-                            <a href="contact.html" class="text-foreground hover:text-primary transition-colors">
-                                &gt; Contact
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-primary terminal-glow font-bold mb-4">&gt; DOCUMENTATION</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li>
-                            <a href="resources.html" class="text-foreground hover:text-primary transition-colors">
-                                &gt; Getting Started
-                            </a>
-                        </li>
-                        <li>
-                            <a href="resources.html" class="text-foreground hover:text-primary transition-colors">
-                                &gt; API Docs
-                            </a>
-                        </li>
-                        <li>
-                            <a href="resources.html" class="text-foreground hover:text-primary transition-colors">
-                                &gt; Survival Guides
-                            </a>
-                        </li>
-                        <li>
-                            <a href="resources.html" class="text-foreground hover:text-primary transition-colors">
-                                &gt; Downloads
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
 
-            <div class="border-t border-border pt-6">
-                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div class="text-muted-foreground text-sm">
-                        <pre class="terminal-glow">© 2025 PREPARED CITIZEN CORPS | OPEN SOURCE | MIT LICENSE</pre>
+                <p class="warlock-description">
+                    Helmet-mounted computer that interfaces with TAK on your phone to overlay waypoints and POIs on your HUD. Features dual low-light cameras (IMX462), thermal imaging (FLIR Lepton 3.5), real-time AI object detection (YOLO11 on Hailo-8L), GPS navigation, and terrain mapping. Field-hardened, modular, extensible.
+                </p>
+
+                <div class="stats">
+                    <div>
+                        <span class="stat-value glow">30-60 FPS</span>
+                        <span class="stat-label">With Hailo-8L</span>
                     </div>
-                    <div class="text-secondary text-sm terminal-glow">
-                        &gt; STAY_PREPARED <span class="blink">_</span>
+                    <div>
+                        <span class="stat-value glow">15-20ms</span>
+                        <span class="stat-label">YOLO Inference</span>
                     </div>
+                    <div>
+                        <span class="stat-value glow">~2ms</span>
+                        <span class="stat-label">Display Latency (DRM)</span>
+                    </div>
+                    <div>
+                        <span class="stat-value glow">~$814</span>
+                        <span class="stat-label">Total Build Cost</span>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--orange); margin-bottom: 1rem;" class="glow">&gt; CURRENT_STATUS</h3>
+                <div class="features">
+                    <div class="feature">
+                        <span class="feature-icon done glow">✓</span>
+                        <span class="feature-text">Multi-camera system (2x low-light + thermal)</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon done glow">✓</span>
+                        <span class="feature-text">AI object detection (YOLO11 on Hailo-8L)</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon done glow">✓</span>
+                        <span class="feature-text">Modular plugin system with hot-reload</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon wip glow">[~]</span>
+                        <span class="feature-text">TAK server integration & waypoint overlay</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon todo">[ ]</span>
+                        <span class="feature-text todo">GPS module + IMU sensors (BNO085)</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon todo">[ ]</span>
+                        <span class="feature-text todo">Dual battery system (30min + extended)</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon todo">[ ]</span>
+                        <span class="feature-text todo">Weatherproof enclosures & field hardening</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon todo">[ ]</span>
+                        <span class="feature-text todo">RayNeo Air 3 Pro AR glasses integration</span>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--orange); margin-bottom: 1rem;" class="glow">&gt; HARDWARE_STACK</h3>
+                <div class="tags">
+                    <span class="tag">RASPBERRY PI 5</span>
+                    <span class="tag">HAILO-8L AI</span>
+                    <span class="tag">ARDUCAM IMX462</span>
+                    <span class="tag">FLIR LEPTON 3.5</span>
+                    <span class="tag">RAYNEO AIR 3 PRO</span>
+                    <span class="tag">YOLO11</span>
+                    <span class="tag">TAK INTEGRATION</span>
+                    <span class="tag">U-BLOX NEO-M9N</span>
+                    <span class="tag">BNO085 IMU</span>
+                    <span class="tag">PYTHON</span>
+                    <span class="tag">OPENCV</span>
+                    <span class="tag">DRM/KMS</span>
+                </div>
+
+                <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="https://github.com/preparedcitizencorps/warlock" target="_blank" rel="noopener" class="btn btn-primary glow">&gt; VIEW ON GITHUB</a>
+                    <a href="https://discord.gg/uFMEug4Bb9" target="_blank" rel="noopener" class="btn btn-outline glow">&gt; JOIN DISCORD</a>
                 </div>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="https://github.com/preparedcitizencorps" target="_blank" rel="noopener">&gt; GitHub</a>
+                    <a href="https://discord.gg/uFMEug4Bb9" target="_blank" rel="noopener">&gt; Discord</a>
+                    <a href="mailto:contact@preparedcitizencorps.com">&gt; Email</a>
+                </div>
+                <p class="copyright glow">
+                    © 2025 PREPARED CITIZEN CORPS | OPEN SOURCE | MIT LICENSE<br>
+                    <span style="color: var(--green);">&gt; STAY_PREPARED <span class="blink">_</span></span>
+                </p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
